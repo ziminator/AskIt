@@ -1,0 +1,16 @@
+h1.mb-4 Questions
+=link_to 'New question', new_question_path, class: 'btn btn-success btn-lg'
+-@questions.each do |question|
+  article.card.mt-3
+    div.card-body
+      h4 =question.title
+      section.card-text
+        time datetime=("#{question.formatted_created_at}")
+          small =question.formatted_created_at
+        p.my-2 =question.body
+        =link_to 'Show', question_path(question), class: 'btn btn-primary'
+        | &nbsp;
+        =link_to 'Edit', edit_question_path(question), class: 'btn btn-secondary'
+        | &nbsp;
+        =link_to 'Delete', question_path(question), class: 'btn btn-danger',
+          data: { method: :delete, confirm: 'Are you sure?' }

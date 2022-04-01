@@ -1,0 +1,32 @@
+h1.mb-4 =@question.title
+time datetime=("#{@question.formatted_created_at}")
+  =@question.formatted_created_at
+br
+p.lead.my-3 =@question.body
+=link_to 'Show', question_path(@question), class: 'btn btn-primary'
+| &nbsp;
+=link_to 'Edit', edit_question_path(@question), class: 'btn btn-secondary' 
+| &nbsp;
+=link_to 'Delete', question_path(@question), class: 'btn btn-danger',
+  data: { method: :delete, confirm: 'Are you sure?' }
+
+hr.my-3/
+h2 Write your answer
+p.mb-3.row =render 'shared/errors', object: @answer
+=form_with model: [@question, @answer] do |f|
+  div.mb-3.row
+    div.col-sm-2.col-form-label
+      =f.label :body
+    
+    div.col-sm-10
+      =f.text_area :body, class: 'form-control'
+  =f.submit 'Submit answer!', class: 'btn btn-primary'
+
+h2.mt-5 Answers
+-@answers.each do |answer|
+  article.mb-3
+    time datetime=("#{answer.formatted_created_at}")
+      =answer.formatted_created_at
+    p =answer.body
+    p =link_to 'Delete', question_answer_path(@question, answer), class: 'btn btn-danger btn-sm',
+      data: { method: :delete, confirm: 'Are you sure?' }

@@ -1,16 +1,13 @@
 p.mb-3.row =render 'shared/errors', object: @question
-
 =form_with model: @question do |f|
-  div.mb-3.row
-    div.col-sm-2.col-form-label
+  .mb-3.row
+    .col-sm-2.col-form-label
       =f.label :title
-    div.col-sm-10 
+    .col-sm-10 
       =f.text_field :title, placeholder: 'Title', class: 'form-control'
-
-  div.mb-3.row
-    div.col-sm-2.col-form-label
+  .mb-3.row
+    .col-sm-2.col-form-label
       =f.label :body
-    div.col-sm-10
+    .col-sm-10
       =f.text_area :body, class: 'form-control'
-
   =f.submit 'Submit Question!', class: 'btn btn-primary'

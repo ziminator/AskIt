@@ -1,0 +1,11 @@
+article.mb-3.card id="answer-#{answer.id}"
+  .card-body
+    section.card-text
+      time datetime="#{answer.formatted_created_at}" 
+        small =answer.formatted_created_at
+      .mt-2.mb-3
+        =sanitize answer.body
+    =link_to 'Edit', edit_question_answer_path(question, answer), class: 'btn btn-info btn-sm'
+    | &nbsp;
+    =link_to 'Delete', question_answer_path(question, answer), class: 'btn btn-danger btn-sm',
+      data: {method: :delete, confirm: "Are you sure?"}

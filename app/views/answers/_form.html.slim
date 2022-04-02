@@ -1,0 +1,8 @@
+p.mb-3.row =render 'shared/errors', object: @answer
+=form_with model: [@question, @answer] do |f|
+  .mb-3.row
+    .col-sm-2.col-form-label
+      =f.label :body
+    .col-sm-10
+      =f.text_area :body, class: 'form-control'
+  =f.submit 'Submit answer!', class: 'btn btn-primary'

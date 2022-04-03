@@ -2,7 +2,7 @@
 -currently_at 'Questions'
 h1.mb-2 Questions
 =link_to 'New question', new_question_path, class: 'btn btn-success btn-lg'
-.mt-2 =paginate @questions
+.mt-2 =raw(pagy_bootstrap_nav @pagy)
 -@questions.each do |question|
   article.card.mt-3
     .card-body
@@ -18,4 +18,4 @@ h1.mb-2 Questions
       | &nbsp;
       =link_to 'Delete', question_path(question), class: 'btn btn-danger',
         data: { method: :delete, confirm: 'Are you sure?' }
-.mt-2.mb-4 =paginate @questions
+.mt-2.mb-4 =raw(pagy_bootstrap_nav @pagy)

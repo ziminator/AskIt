@@ -18,6 +18,6 @@ h2.mb-2 Write your answer
   h2.mt-5 No answers yet
 -else
   h2.mt-5 Answers
-  .mb-2 =raw(pagy_bootstrap_nav @pagy)
+  .mb-2 =pagination @pagy
   =render partial: 'answers/answer', collection: @answers, as: :answer, locals: {question: @question}
-  .mb-4 =raw(pagy_bootstrap_nav @pagy)
+  .mb-4 =pagination @pagy

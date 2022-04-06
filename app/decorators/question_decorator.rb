@@ -1,4 +1,4 @@
-class UserDecorator < Draper::Decorator
+class QuestionDecorator < Draper::Decorator
   delegate_all
 
   def formatted_created_at

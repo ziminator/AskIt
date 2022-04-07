@@ -20,4 +20,4 @@ p.mb-3.row =render 'shared/errors', object: @user
       =f.label :password_confirmation
     .col-sm-10
       =f.password_field :password_confirmation, class: 'form-control form-control-lg'
-  =f.submit 'Register', class: 'btn btn-warning btn-lg'
+  =f.submit (@user.new_record? ? 'Register!' : 'Save'), class: 'btn btn-warning btn-lg'
